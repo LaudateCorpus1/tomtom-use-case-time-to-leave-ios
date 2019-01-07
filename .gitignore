@@ -1,0 +1,7 @@
+Podfile.lock
+Pods
+Time-To-Leave.xcworkspace/*
+Time-To-Leave.xcodeproj/xcuserdata/*
+Time-To-Leave.xcodeproj/project.xcworkspace/*
+.idea/
+.DS_Store

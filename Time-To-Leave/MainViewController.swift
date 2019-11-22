@@ -16,6 +16,8 @@ class MainViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var preparation10MinutesButton: UIButton!
     
     var travelMode = TTOptionTravelMode.car
+    let timeShowSegueIdentifier = "timeShowSegue"
+    let cellReuseIdentifier = "cell"
     var preparationTime = 0
     var autocompleteTableView: UITableView!
     let locationManager = CLLocationManager()
@@ -115,7 +117,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UITableViewDele
             lastActiveTextField = textView
             adjustAutocompleteFrame(textView)
             autocompleteTableView.isHidden = true
-            let searchQuery: TTSearchQuery = TTSearchQueryBuilder.create(withTerm: enteredText ?? "").withTypeAhead(true).withLanguage(.englishGB).build()
+            let searchQuery: TTSearchQuery = TTSearchQueryBuilder.create(withTerm: enteredText ?? "").withTypeAhead(true).withLang("en-US").build()
             self.tomtomSearchAPI.search(with: searchQuery)
         }
     }
@@ -136,7 +138,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UITableViewDele
         autocompleteTableView.dataSource = self
         autocompleteTableView.isScrollEnabled = true
         autocompleteTableView.isHidden = true
-        autocompleteTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        autocompleteTableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellReuseIdentifier)
         self.view.addSubview(autocompleteTableView)
     }
     
@@ -186,7 +188,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as UITableViewCell
         let index = indexPath.row as Int
         cell.textLabel?.text = searchResults[index].address
         cell.textLabel?.numberOfLines = 3
@@ -214,7 +216,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "timeShowSegue" {
+        if identifier == self.timeShowSegueIdentifier {
             if !CLLocationCoordinate2DIsValid(departureCoords)
                 || !CLLocationCoordinate2DIsValid(destinationCoords)
                 || coordinatesAreEqual(coord1: departureCoords, coord2: destinationCoords)  {
@@ -226,7 +228,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "timeShowSegue" {
+        if segue.identifier == self.timeShowSegueIdentifier {
             let destViewController: CountDownViewController = segue.destination as! CountDownViewController
             destViewController.travelMode = travelMode
             destViewController.arriveAtTime = getArrivalDate()

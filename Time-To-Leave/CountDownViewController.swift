@@ -26,6 +26,7 @@ class CountDownViewController: UIViewController, TTRouteResponseDelegate{
     var progressDialog: UIViewController!
     var countDownTimer: Timer?
     var countDownSeconds: Int = 0
+    let safeTravelsSegueIdentifier = "safeTravelsSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,7 @@ class CountDownViewController: UIViewController, TTRouteResponseDelegate{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "safeTravelsSegue" {
+        if segue.identifier == self.safeTravelsSegueIdentifier {
             let destViewController: SafeTravelsViewController = segue.destination as! SafeTravelsViewController
             destViewController.parentDelegate = self
         }
@@ -98,9 +99,12 @@ class CountDownViewController: UIViewController, TTRouteResponseDelegate{
         }
         
         func drawRouteOnTomTomMap(_ route: TTFullRoute) {
-            let mapRoute = TTMapRoute(coordinatesData: route, imageStart: TTMapRoute.defaultImageDeparture(), imageEnd: TTMapRoute.defaultImageDestination())
+            let mapRoute = TTMapRoute(coordinatesData: route,
+                                      with: TTMapRouteStyle.defaultActive(),
+                                      imageStart: TTMapRoute.defaultImageDeparture(),
+                                      imageEnd: TTMapRoute.defaultImageDestination())
             mapView.routeManager.add(mapRoute)
-            mapRoute.isActive = true
+            
             mapView.routeManager.showRouteOverview(mapRoute)
         }
         
@@ -167,7 +171,7 @@ class CountDownViewController: UIViewController, TTRouteResponseDelegate{
                 self.present(overTimeDialog, animated: true, completion: nil)
             })
             let onMyWayAction = UIAlertAction(title: "On My Way!", style: .default, handler: { _ in
-                self.performSegue(withIdentifier: "safeTravelsSegue", sender: self)
+                self.performSegue(withIdentifier: self.safeTravelsSegueIdentifier, sender: self)
             })
             timeToLeaveAlert.addAction(timeToLeaveWhateverAction)
             timeToLeaveAlert.addAction(onMyWayAction)
@@ -216,18 +220,19 @@ class CountDownViewController: UIViewController, TTRouteResponseDelegate{
     }
     
     fileprivate func secondsToHoursMinutesSecondsTuple(travelTimeInSeconds: Int) -> (hours:Int, minutes:Int, seconds:Int) {
+        let ONE_HOUR_IN_SECONDS = 3600
+        let ONE_MINUTE_IN_SECONDS = 60
         func getHours() -> Int {
-            return travelTimeInSeconds / 3600
+            return travelTimeInSeconds / ONE_HOUR_IN_SECONDS
         }
         
         func getMinutes() -> Int {
-            return (travelTimeInSeconds % 3600) / 60
+            return (travelTimeInSeconds % ONE_HOUR_IN_SECONDS) / ONE_MINUTE_IN_SECONDS
         }
         
         func getSeconds() -> Int {
-            return (travelTimeInSeconds % 3600) % 60
+            return (travelTimeInSeconds % ONE_HOUR_IN_SECONDS) % ONE_MINUTE_IN_SECONDS
         }
-        
         let hours = getHours()
         let minutes = getMinutes()
         let seconds = getSeconds()

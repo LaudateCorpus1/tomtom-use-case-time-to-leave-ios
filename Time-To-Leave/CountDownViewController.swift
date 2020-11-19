@@ -11,7 +11,7 @@ class CountDownViewController: UIViewController, TTRouteResponseDelegate{
     @IBOutlet weak var labelMinutes: UILabel!
     @IBOutlet weak var labelSeconds: UILabel!
     
-    let ttRoute = TTRoute()
+    let ttRoute = TTRoute(key: Key.Routing)
     var travelMode: TTOptionTravelMode!
     var arriveAtTime: Date!
     var travelTimeInSeconds: Int? {
@@ -136,7 +136,7 @@ class CountDownViewController: UIViewController, TTRouteResponseDelegate{
             updateTimer()
         }
         else if self.previousDepartureTime != newDepartureTime {
-            presentTrafficUpdateDialog(message: "Route recalculated due to changer in traffic: \(Int(self.previousDepartureTime.timeIntervalSince(newDepartureTime)))sec")
+            presentTrafficUpdateDialog(message: "Route recalculated due to change in traffic: \(Int(self.previousDepartureTime.timeIntervalSince(newDepartureTime)))sec")
             self.previousDepartureTime = newDepartureTime
         }
         else if self.previousDepartureTime == newDepartureTime {

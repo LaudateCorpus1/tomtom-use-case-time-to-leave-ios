@@ -6,8 +6,8 @@ target 'Time-To-Leave' do
   use_frameworks!
 
   # Pods for Time-To-Leave
-  pod 'TomTomOnlineSDKMaps', '2.4.690'
-  pod 'TomTomOnlineSDKRouting', '2.4.690'
-  pod 'TomTomOnlineSDKSearch', '2.4.690'
-  pod 'TomTomOnlineSDKMapsUIExtensions', '2.4.690'
+  pod 'TomTomOnlineSDKMaps', '2.4.694'
+  pod 'TomTomOnlineSDKRouting', '2.4.694'
+  pod 'TomTomOnlineSDKSearch', '2.4.694'
+  pod 'TomTomOnlineSDKMapsUIExtensions', '2.4.694'
 end

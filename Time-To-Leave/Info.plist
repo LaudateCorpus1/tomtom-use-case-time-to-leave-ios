@@ -24,12 +24,6 @@
 	<string></string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
-	<key>OnlineMap.Key</key>
-	<string>YOUR_KEY_GOES_HERE</string>
-	<key>OnlineRouting.Key</key>
-	<string>YOUR_KEY_GOES_HERE</string>
-	<key>OnlineSearch.Key</key>
-	<string>YOUR_KEY_GOES_HERE</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Gotham-Bold.otf</string>

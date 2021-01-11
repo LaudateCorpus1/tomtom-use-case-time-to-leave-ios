@@ -26,7 +26,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, UITableViewDele
     var destinationCoords = kCLLocationCoordinate2DInvalid
     var lastActiveTextField: UITextField?
     let dateFormatter = DateFormatter()
-    let tomtomSearchAPI = TTSearch()
+    let tomtomSearchAPI = TTSearch(key: Key.Search)
     var searchResults: [(address: String, coords: CLLocationCoordinate2D)] = []
     var preparationTimeButtons: [UIButton] = []
     var buttonsTravelModeMap: [UIButton: TTOptionTravelMode] = [:]

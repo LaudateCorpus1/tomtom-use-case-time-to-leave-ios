@@ -3,15 +3,16 @@ import TomTomOnlineSDKMaps
 import TomTomOnlineSDKRouting
 
 class CountDownViewController: UIViewController, TTRouteResponseDelegate{
-    @IBOutlet weak var mapView: TTMapView!
     @IBOutlet weak var labelPrepTime: UILabel!
     @IBOutlet weak var labelTravelTime: UILabel!
     @IBOutlet weak var imageTravelIcon: UIImageView!
     @IBOutlet weak var labelHour: UILabel!
     @IBOutlet weak var labelMinutes: UILabel!
     @IBOutlet weak var labelSeconds: UILabel!
+    @IBOutlet weak var countDownView: UIView!
     
-    let ttRoute = TTRoute()
+    var mapView: TTMapView!
+    let ttRoute = TTRoute(key: Key.Routing)
     var travelMode: TTOptionTravelMode!
     var arriveAtTime: Date!
     var travelTimeInSeconds: Int? {
@@ -52,7 +53,24 @@ class CountDownViewController: UIViewController, TTRouteResponseDelegate{
         dismiss(animated: true, completion: nil)
     }
     
+    fileprivate func initTomTomMap() {
+        let style = TTMapStyleDefaultConfiguration()
+        let config = TTMapConfigurationBuilder.create()
+            .withMapKey(Key.Map)
+            .withTrafficKey(Key.Traffic)
+            .withMapStyleConfiguration(style)
+            .build()
+        self.mapView = TTMapView(frame: self.view.frame, mapConfiguration: config)
+        self.view.insertSubview(mapView, belowSubview: countDownView)
+        self.mapView.translatesAutoresizingMaskIntoConstraints = false
+        self.mapView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        self.mapView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        self.mapView.topAnchor.constraint(equalTo: self.countDownView.bottomAnchor).isActive = true
+        self.mapView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
+    
     fileprivate func initTomTomServices() {
+        initTomTomMap()
         self.ttRoute.delegate = self
         let insets = UIEdgeInsets.init(top: 30 * UIScreen.main.scale, left: 10 * UIScreen.main.scale, bottom: 30 * UIScreen.main.scale, right:10 * UIScreen.main.scale)
         self.mapView.contentInset = insets
@@ -136,7 +154,7 @@ class CountDownViewController: UIViewController, TTRouteResponseDelegate{
             updateTimer()
         }
         else if self.previousDepartureTime != newDepartureTime {
-            presentTrafficUpdateDialog(message: "Route recalculated due to changer in traffic: \(Int(self.previousDepartureTime.timeIntervalSince(newDepartureTime)))sec")
+            presentTrafficUpdateDialog(message: "Route recalculated due to change in traffic: \(Int(self.previousDepartureTime.timeIntervalSince(newDepartureTime)))sec")
             self.previousDepartureTime = newDepartureTime
         }
         else if self.previousDepartureTime == newDepartureTime {

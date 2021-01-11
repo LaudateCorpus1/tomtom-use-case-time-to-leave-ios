@@ -18,11 +18,27 @@
 		8B272BAE219BEE46005B5C07 /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B272BAD219BED99005B5C07 /* Gotham-Book.otf */; };
 		8B272BAF219BEE64005B5C07 /* Gotham-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B272BAC219BED99005B5C07 /* Gotham-Medium.otf */; };
 		8B272BB1219BF040005B5C07 /* InfoScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B272BB0219BF040005B5C07 /* InfoScreenViewController.swift */; };
+		8B2ED954246D9EAB0061DB58 /* Pods_Time_To_Leave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5CB0BD26B2A37727C37BEE /* Pods_Time_To_Leave.framework */; };
+		8B2ED955246D9EAB0061DB58 /* Pods_Time_To_Leave.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5CB0BD26B2A37727C37BEE /* Pods_Time_To_Leave.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B409C9521A8401F00F2C21F /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B409C9421A8401F00F2C21F /* Gotham-Bold.otf */; };
 		8B91598221AE6A7900ED1645 /* SafeTravelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91598121AE6A7900ED1645 /* SafeTravelsViewController.swift */; };
 		8B91598421AE98E900ED1645 /* OverTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B91598321AE98E900ED1645 /* OverTimeViewController.swift */; };
-		C7D5AEF3B5807D3BA47D74EA /* Pods_Time_To_Leave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5CB0BD26B2A37727C37BEE /* Pods_Time_To_Leave.framework */; };
+		8BA1D36D2566ED0C00623744 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA1D36C2566ED0C00623744 /* Keys.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8B2ED956246D9EAB0061DB58 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8B2ED955246D9EAB0061DB58 /* Pods_Time_To_Leave.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1E5CB0BD26B2A37727C37BEE /* Pods_Time_To_Leave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Time_To_Leave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +58,7 @@
 		8B409C9421A8401F00F2C21F /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		8B91598121AE6A7900ED1645 /* SafeTravelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeTravelsViewController.swift; sourceTree = "<group>"; };
 		8B91598321AE98E900ED1645 /* OverTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverTimeViewController.swift; sourceTree = "<group>"; };
+		8BA1D36C2566ED0C00623744 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		B9BE689724A2376B54650822 /* Pods-Time-To-Leave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time-To-Leave.release.xcconfig"; path = "Pods/Target Support Files/Pods-Time-To-Leave/Pods-Time-To-Leave.release.xcconfig"; sourceTree = "<group>"; };
 		C7C25A4CBDC597E20213FB51 /* Pods-Time-To-Leave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Time-To-Leave.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Time-To-Leave/Pods-Time-To-Leave.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7D5AEF3B5807D3BA47D74EA /* Pods_Time_To_Leave.framework in Frameworks */,
+				8B2ED954246D9EAB0061DB58 /* Pods_Time_To_Leave.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +108,7 @@
 				8B91598121AE6A7900ED1645 /* SafeTravelsViewController.swift */,
 				8B91598321AE98E900ED1645 /* OverTimeViewController.swift */,
 				8B0B746D21B64F8200799710 /* TrafficUpdateViewController.swift */,
+				8BA1D36C2566ED0C00623744 /* Keys.swift */,
 			);
 			path = "Time-To-Leave";
 			sourceTree = "<group>";
@@ -135,6 +153,7 @@
 				3EF7807820D2AE3C00B6D623 /* Frameworks */,
 				3EF7807920D2AE3C00B6D623 /* Resources */,
 				2DEF89BEE35A5AFFC0B935AF /* [CP] Embed Pods Frameworks */,
+				8B2ED956246D9EAB0061DB58 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,7 +171,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Jarosław Wojtalik";
 				TargetAttributes = {
 					3EF7807A20D2AE3C00B6D623 = {
@@ -240,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EF7808120D2AE3C00B6D623 /* MainViewController.swift in Sources */,
+				8BA1D36D2566ED0C00623744 /* Keys.swift in Sources */,
 				8B91598221AE6A7900ED1645 /* SafeTravelsViewController.swift in Sources */,
 				8B272BB1219BF040005B5C07 /* InfoScreenViewController.swift in Sources */,
 				3EDCA7A820DBE16100D45D60 /* CountDownViewController.swift in Sources */,
@@ -297,6 +317,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -322,7 +343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -357,6 +378,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -376,7 +398,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -393,11 +415,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NTU9969N38;
 				INFOPLIST_FILE = "Time-To-Leave/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tomtom.developer.Time-To-Leave1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomtom.developer.Time-To-Leave2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -412,11 +435,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NTU9969N38;
 				INFOPLIST_FILE = "Time-To-Leave/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tomtom.developer.Time-To-Leave1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomtom.developer.Time-To-Leave2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
